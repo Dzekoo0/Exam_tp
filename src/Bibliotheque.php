@@ -68,4 +68,14 @@ class Bibliotheque
         }
         return $resultats;
     }
+
+    public function nombreAuteurs(): int
+    {
+        return count(array_unique(array_map(fn($l) => $l->getAuteur(), $this->livres)));
+    }
+
+    public function compterParAuteur(string $auteur): int
+    {
+        return count(array_filter($this->livres, fn($l) => $l->getAuteur() === $auteur));
+    }
 }
