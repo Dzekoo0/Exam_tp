@@ -58,3 +58,11 @@ $l4 = new Livre('9780596007126', 'Algo Avance', 'Cormen');
 $bib->ajouter($l4);
 $res4 = $bib->rechercher('algo');
 verifier(count($res4) === 2, 'rechercher("algo") trouve 2 livres');
+
+//test nombreAuteurs
+verifier($bib->nombreAuteurs() === 3, 'nombreAuteurs() retourne 3 auteurs uniques');
+
+//test compterParAuteur
+verifier($bib->compterParAuteur('Cormen') === 2, 'compterParAuteur("Cormen") retourne 2');
+verifier($bib->compterParAuteur('Gamma') === 1, 'compterParAuteur("Gamma") retourne 1');
+verifier($bib->compterParAuteur('Inconnu') === 0, 'compterParAuteur("Inconnu") retourne 0');
